@@ -29,13 +29,18 @@ run the test_rl_agent script using the following command:
 
 ### Results 
 
-* CartPole
 ![](results/CartPole.gif)  
 
 
-Trial name                   |iter   |total time (s) |reward  | episode_reward_max  | episode_reward_min |  
+Best Trial name              |iter   |total time (s) |reward  | episode_reward_max  | episode_reward_min |  
 :---------------------------:|:-----:|:-------------:|:------:|:-------------------:|:------------------:|
 PPO_CartPole-v0_e6e3e_00000  | 28    |   145.908     | 197.08 |   200               |   127              | 
 
-TensorBoard
-![](results/CartPole_Tensorboard.png) 
+
+
+Emvironment                           |  Tensorboard                             
+:------------------------------------:|:---------------------------------:
+![](results/CartPole2.gif)             | ![](results/CartPole_Tensorboard.png)
+
+
+
