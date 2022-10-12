@@ -5,10 +5,11 @@ from configure import CONFIG
 
 class TrainAgent:
     
-    def __init__(self, env_name):
+    def __init__(self, env_name, algorithm, episode_reward_mean):
         self.env_name = env_name
+        self.algorithm = algorithm
         self.config = CONFIG(self.env_name)
-        self.stop = {"episode_reward_mean": 195}
+        self.stop = {"episode_reward_mean": episode_reward_mean}
     
     def init_ray(self):
         
@@ -27,7 +28,7 @@ class TrainAgent:
         
         # execute training
         analysis = tune.run(
-            "PPO",
+            self.algorithm,
             config=self.config.get_config(),
             local_dir=self.config.local_dir,
             stop=self.stop,
@@ -39,7 +40,11 @@ class TrainAgent:
 
 
 if __name__ == "__main__":
-    ENV_NAME = "CartPole-v0"
-    train = TrainAgent(ENV_NAME)
+    # "LunarLander-v2", "CartPole-v0", "MountainCar-v0"
+    ENV_NAME = "LunarLander-v2"
+    EPISODE_REWARD_MEAN = 195
+    ALGORITHM = "PPO"
+    
+    train = TrainAgent(ENV_NAME, algorithm=ALGORITHM ,episode_reward_mean=EPISODE_REWARD_MEAN)
     train.run()
     

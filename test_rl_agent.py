@@ -7,13 +7,14 @@ from configure import CONFIG
 
 
 class TestAgent:
-    def __init__(self, env_name):
+    def __init__(self, env_name, algorithm):
         self.env_name = env_name
+        self.algorithm = algorithm
         self.config = CONFIG(self.env_name)
         
     def restore_trainer_from_checkpoint(self):
 
-        analysis = tune.ExperimentAnalysis(experiment_checkpoint_path=f"{self.config.local_dir}/PPO")
+        analysis = tune.ExperimentAnalysis(experiment_checkpoint_path=f"{self.config.local_dir}/{self.algorithm}")
         
         # restore a trainer from the last checkpoint
         trial = analysis.get_best_logdir("episode_reward_mean", "max")
@@ -56,6 +57,9 @@ class TestAgent:
 
 
 if __name__ == "__main__":
-    ENV_NAME = "CartPole-v0"
-    agent = TestAgent(ENV_NAME)
+    # "LunarLander-v2", "CartPole-v0", "MountainCar-v0"
+    ENV_NAME = "LunarLander-v2"
+    ALGORITHM = "PPO"
+    
+    agent = TestAgent(ENV_NAME, algorithm=ALGORITHM)
     agent.make_inference()

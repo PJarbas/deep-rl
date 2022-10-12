@@ -41,6 +41,3 @@ Emvironment                           |  Tensorboard
 :------------------------------------:|:---------------------------------:
 ![](results/CartPole.gif)             | ![](results/CartPole_Tensorboard.png)
 ![](results/LunarLander.gif)          | ![](results/LunarLander_Tensorboard.png)
-
-
-
