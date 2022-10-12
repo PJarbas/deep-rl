@@ -38,7 +38,7 @@ PPO_CartPole-v0_e6e3e_00000  | 28    |   145.908     | 197.08 |   200           
 
 Emvironment                           |  Tensorboard                             
 :------------------------------------:|:---------------------------------:
-![](results/CartPole2.gif)            | ![](results/CartPole_Tensorboard.png)
+![](results/CartPole.gif)            | ![](results/CartPole_Tensorboard.png)
 
 
 
